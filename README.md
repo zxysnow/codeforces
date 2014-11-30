@@ -1,1 +1,1 @@
-Code for codeforces' contests.
+Codes for codeforces' contests.
