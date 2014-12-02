@@ -21,6 +21,7 @@
 using namespace std;
 
 const int MAX = 5010;
+
 class Card {
 	public:
 		int w, h;
