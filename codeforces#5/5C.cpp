@@ -28,16 +28,16 @@ int main() {
 	cin >> s;
 	for(int i=0; i<s.size(); i++) {
 		if( s[i] == '(' ) {
-			st.push(i+1);
+			st.push(i);
 		} else if( !st.empty() ) {
 			int t = st.top();
 			st.pop();
-			dp[i+1] = dp[t-1] + i + 1 - t + 1;
+			dp[i] = dp[t-1] + i - (t - 1);
 		}
 	}
 	int max_len = 0;
 	int num = 1;
-	for(int i=1; i<=s.size(); i++)
+	for(int i=0; i<s.size(); i++)
 		if( dp[i] > max_len) {
 			max_len = dp[i];
 			num = 1;
