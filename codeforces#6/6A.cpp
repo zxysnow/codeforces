@@ -20,37 +20,18 @@
 
 using namespace std;
 
-int a[4];
-int n = 4;
-
-int triangle() {
-	int tri = 0;
-	int seg = 0;
-	
-	sort(a, a+4);
-	for(int i=0; i<4; i++)
-		for(int k=i+1; k<4; k++)
-			for(int j=k+1; j<4; j++) {
-				if( a[i] + a[k] > a[j] && a[k] - a[i] < a[j] )
-					tri++;
-				if( a[i] + a[k] == a[j] )
-					seg++;
-			}
-	if( tri ) return 1;
-	if( seg ) return 2;
-	return 0;
-}
 int main() {
-	for(int i=0; i<n; i++)
+	int a[4];
+	for(int i=0; i<4; i++)
 		cin >> a[i];
-	
-	int ans = triangle();
-	if( ans == 1 ) {
-		cout << "TRIANGLE" << endl;
-	} else if( ans == 2 ) {
-		cout << "SEGMENT" << endl;
-	} else {
-		cout << "IMPOSSIBLE" << endl;
-	}
+	sort(a, a+4);
+	int ans = min(a[3] - a[2] - a[1], a[2] - a[1] - a[0]);
+	if( ans < 0 )
+		cout << "TRIANGLE";
+	if( ans == 0 )
+		cout << "SEGMENT";
+	if( ans > 0 )
+		cout << "IMPOSSIBLE";
+
 	return 0;
 }
