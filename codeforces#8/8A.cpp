@@ -23,7 +23,6 @@ using namespace std;
 int main() {
 	string s, a, b;
 	bool atob = false, btoa = false;
-	int ans = 0;
 	cin >> s >> a >> b;
 	int pos = s.find(a);
 	if( pos != -1 && (int)s.find(b, pos + a.length()) != -1 )
